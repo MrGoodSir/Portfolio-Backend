@@ -57,13 +57,6 @@ app.get("/projects", async (req, res) => {
   }
 });
 
-app.post("/projects", async (req, res) => {
-  try {
-    res.json(await Projects.create(req.body))
-  } catch (error) {
-    res.status(400).json(error)
-  }
-});
 
 ///////////////////////////////
 // LISTENER
