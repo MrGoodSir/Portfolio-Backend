@@ -4,7 +4,7 @@
 
 
 require("dotenv").config();
-const { PORT = 3001, DATABASE_URL } = process.env;
+const { PORT, DATABASE_URL } = process.env;
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/projects", async (req, res) => {
+app.get("https://gracious-benz-9d3548.netlify.app//projects", async (req, res) => {
   try {
     res.json(await Projects.find({}));
   } catch (error) {
@@ -62,4 +62,4 @@ app.get("/projects", async (req, res) => {
 // LISTENER
 ////////////////////////////////
 
-app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`listening on PORT ${PORT}`));
