@@ -2,7 +2,6 @@
 // DEPENDENCIES
 ////////////////////////////////
 
-
 require("dotenv").config();
 const { DATABASE_URL } = process.env;
 const express = require("express");
@@ -29,6 +28,7 @@ const ProjectsSchema = new mongoose.Schema({
   image: String,
   description: String,
   URL: String,
+  gitHubURL: String,
 });
 
 const Projects = mongoose.model("Projects", ProjectsSchema);
@@ -48,7 +48,6 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-
 app.get("/projects", async (req, res) => {
   try {
     res.json(await Projects.find({}));
@@ -57,9 +56,10 @@ app.get("/projects", async (req, res) => {
   }
 });
 
-
 ///////////////////////////////
 // LISTENER
 ////////////////////////////////
 
-app.listen(process.env.PORT || 3001, () => console.log(`listening on PORT ${PORT}`));
+app.listen(process.env.PORT || 3001, () =>
+  console.log("We are up and running..")
+);
