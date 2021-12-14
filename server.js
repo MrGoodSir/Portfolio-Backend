@@ -29,6 +29,7 @@ const ProjectsSchema = new mongoose.Schema({
   image: String,
   description: String,
   URL: String,
+  gitHubURL: String,
 });
 
 const Projects = mongoose.model("Projects", ProjectsSchema);
